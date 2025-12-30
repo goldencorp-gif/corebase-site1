@@ -1,11 +1,25 @@
-<div align="center">
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+# CoreBase Construction Website
 
-  <h1>Built with AI Studio</h2>
+## Logo Configuration
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+To customize the logos for the site, ensure you have a `public` folder in your project root.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+### How to Add Your Logos
+1.  **Header Logo**: Save your header logo as `logo-header.png` inside the `public` folder.
+2.  **Footer Logo**: Save your footer logo as `logo-footer.png` inside the `public` folder.
+3.  **Default Logo**: Save your main logo as `logo.png` inside the `public` folder (this is used as a fallback).
 
-</div>
+### Configuration
+The site looks for these specific filenames by default. You can change these paths by editing `public/site-settings.json`:
+```json
+{
+  "headerLogo": "/logo-header.png",
+  "footerLogo": "/logo-footer.png",
+  "defaultLogo": "/logo.png"
+}
+```
+
+## Syncing to GitHub
+
+You can use the "Save to GitHub" feature to sync all changes. This will include the new `public` folder and `site-settings.json` file. Your deployment pipeline will automatically detect the `public` folder and serve your assets correctly.
