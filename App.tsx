@@ -115,13 +115,13 @@ const Navigation = ({ config }: { config: SiteConfig }) => {
 
       <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm relative z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20">
-            <div className="flex items-center">
+          <div className="flex justify-between items-center h-28 md:h-36 transition-all duration-300">
+            <div className="flex items-center shrink-0">
               <Link to="/" className="flex items-center gap-3 group">
                 <BrandLogo 
                   primarySrc={config.headerLogo} 
                   fallbackSrc={config.defaultLogo}
-                  className="h-14 md:h-16 w-auto object-contain transition-all duration-500"
+                  className="h-24 md:h-32 w-auto object-contain transition-all duration-500"
                 />
               </Link>
             </div>
@@ -162,7 +162,7 @@ const Navigation = ({ config }: { config: SiteConfig }) => {
 
         {/* Mobile menu */}
         {isOpen && (
-          <div className="lg:hidden bg-white border-b border-slate-200 animate-in slide-in-from-top duration-300 absolute w-full left-0 top-20 shadow-xl">
+          <div className="lg:hidden bg-white border-b border-slate-200 animate-in slide-in-from-top duration-300 absolute w-full left-0 top-28 shadow-xl">
             <div className="px-4 pt-4 pb-8 space-y-2">
               {navLinks.map((link) => (
                 <Link
@@ -192,15 +192,15 @@ const Navigation = ({ config }: { config: SiteConfig }) => {
 };
 
 const Footer = ({ config }: { config: SiteConfig }) => (
-  <footer className="bg-slate-900 text-slate-400 pt-20 pb-12 mt-auto">
+  <footer className="bg-slate-900 text-slate-400 pt-24 pb-12 mt-auto">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-16 text-left mb-24">
         <div className="col-span-1 md:col-span-1">
-          <Link to="/" className="inline-block mb-8 group">
+          <Link to="/" className="inline-block mb-10 group">
             <BrandLogo 
               primarySrc={config.footerLogo} 
               fallbackSrc={config.defaultLogo}
-              className="h-14 md:h-16 w-auto object-contain transition-all"
+              className="h-24 md:h-32 w-auto object-contain transition-all"
               isFooter={true}
             />
           </Link>
@@ -214,7 +214,7 @@ const Footer = ({ config }: { config: SiteConfig }) => (
           </div>
         </div>
         
-        <div>
+        <div className="pt-4">
           <h4 className="text-white font-oswald uppercase tracking-[0.3em] text-sm font-black mb-8 pb-2 border-b border-yellow-500/30 inline-block">Navigation</h4>
           <ul className="space-y-4 text-sm font-bold uppercase tracking-widest">
             <li><Link to="/about" className="hover:text-yellow-500 transition-colors">About Us</Link></li>
@@ -225,7 +225,7 @@ const Footer = ({ config }: { config: SiteConfig }) => (
           </ul>
         </div>
 
-        <div>
+        <div className="pt-4">
           <h4 className="text-white font-oswald uppercase tracking-[0.3em] text-sm font-black mb-8 pb-2 border-b border-yellow-500/30 inline-block">Capability</h4>
           <ul className="space-y-4 text-sm font-bold uppercase tracking-widest">
             <li className="flex items-center gap-2">Bulk Excavation</li>
@@ -236,7 +236,7 @@ const Footer = ({ config }: { config: SiteConfig }) => (
           </ul>
         </div>
 
-        <div>
+        <div className="pt-4">
           <h4 className="text-white font-oswald uppercase tracking-[0.3em] text-sm font-black mb-8 pb-2 border-b border-yellow-500/30 inline-block">Inquiries</h4>
           <ul className="space-y-6 text-sm">
             <li className="flex items-start gap-4 group">
