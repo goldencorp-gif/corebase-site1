@@ -1,9 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { 
   Plus, Trash2, Camera, Settings, X, Save, Lock, Unlock, 
   AlertCircle, ChevronLeft, ChevronRight, Play, Image as ImageIcon,
-  Film, ExternalLink, LayoutGrid
+  Film, ExternalLink, LayoutGrid, KeyRound, CheckCircle2
 } from 'lucide-react';
 
 interface MediaItem {
@@ -41,15 +40,21 @@ const DEFAULT_PROJECTS: Project[] = [
   }
 ];
 
-const ADMIN_PASSWORD = 'CoreBase2025'; 
-
 const Gallery = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [isAdmin, setIsAdmin] = useState(false);
+  
+  // Auth State
+  const [adminPassword, setAdminPassword] = useState(() => localStorage.getItem('corebase_admin_pass') || 'CoreBase2025');
   const [showLogin, setShowLogin] = useState(false);
   const [loginPass, setLoginPass] = useState('');
   const [loginError, setLoginError] = useState(false);
   
+  // Password Change State
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [passForm, setPassForm] = useState({ current: '', new: '', confirm: '' });
+  const [passMessage, setPassMessage] = useState({ type: '', text: '' });
+
   // Project Editor State
   const [showAddForm, setShowAddForm] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -83,9 +88,11 @@ const Gallery = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (loginPass === ADMIN_PASSWORD) {
+    if (loginPass === adminPassword) {
       setIsAdmin(true);
       setShowLogin(false);
+      setLoginPass('');
+      setLoginError(false);
       sessionStorage.setItem('corebase_admin_auth', 'true');
     } else {
       setLoginError(true);
@@ -97,6 +104,42 @@ const Gallery = () => {
     sessionStorage.removeItem('corebase_admin_auth');
     setShowAddForm(false);
     setEditingId(null);
+    setShowPasswordModal(false);
+  };
+
+  const handleUpdatePassword = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate current password
+    if (passForm.current !== adminPassword) {
+      setPassMessage({ type: 'error', text: 'Current password is incorrect.' });
+      return;
+    }
+
+    // Validate new password length
+    if (passForm.new.length < 6) {
+      setPassMessage({ type: 'error', text: 'New password must be at least 6 characters.' });
+      return;
+    }
+
+    // Validate confirmation
+    if (passForm.new !== passForm.confirm) {
+      setPassMessage({ type: 'error', text: 'New passwords do not match.' });
+      return;
+    }
+    
+    // Save new password
+    setAdminPassword(passForm.new);
+    localStorage.setItem('corebase_admin_pass', passForm.new);
+    
+    setPassMessage({ type: 'success', text: 'Password updated successfully!' });
+    
+    // Close modal after success
+    setTimeout(() => {
+        setShowPasswordModal(false);
+        setPassMessage({ type: '', text: '' });
+        setPassForm({ current: '', new: '', confirm: '' });
+    }, 1500);
   };
 
   const handleSaveProject = (e: React.FormEvent) => {
@@ -182,15 +225,26 @@ const Gallery = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {isAdmin && (
-            <div className="mb-12 flex items-center justify-between bg-white p-6 shadow-sm border border-slate-200">
-              <button 
-                onClick={() => setShowAddForm(true)}
-                className="bg-slate-900 text-white px-8 py-3 rounded-sm font-bold uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-slate-800"
-              >
-                <Plus size={16} /> Create New Folder
-              </button>
+            <div className="mb-12 flex flex-col md:flex-row items-center justify-between bg-white p-6 shadow-sm border border-slate-200 gap-4">
+              <div className="flex flex-wrap gap-4">
+                <button 
+                  onClick={() => setShowAddForm(true)}
+                  className="bg-slate-900 text-white px-6 py-3 rounded-sm font-bold uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-slate-800"
+                >
+                  <Plus size={16} /> Create Folder
+                </button>
+                <button 
+                  onClick={() => setShowPasswordModal(true)}
+                  className="bg-white border border-slate-200 text-slate-600 px-6 py-3 rounded-sm font-bold uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-slate-50 hover:text-yellow-600 transition-colors"
+                >
+                  <KeyRound size={16} /> Security
+                </button>
+              </div>
               <div className="text-right hidden sm:block">
-                <p className="text-xs text-slate-400 uppercase font-black tracking-widest">Management Enabled</p>
+                <p className="text-xs text-slate-400 uppercase font-black tracking-widest flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                  Management Active
+                </p>
               </div>
             </div>
           )}
@@ -380,7 +434,7 @@ const Gallery = () => {
         </div>
       )}
 
-      {/* Admin Login Modal (Reusable from your prev version) */}
+      {/* Admin Login Modal */}
       {showLogin && (
         <div className="fixed inset-0 bg-slate-900/95 backdrop-blur-md z-[300] flex items-center justify-center p-4">
           <div className="bg-white w-full max-w-md rounded-sm shadow-2xl animate-in zoom-in-95 duration-200 overflow-hidden">
@@ -399,6 +453,52 @@ const Gallery = () => {
               </div>
               <button type="submit" className="w-full bg-slate-900 text-white font-bold uppercase tracking-widest py-4 hover:bg-slate-800 transition-all">Verify & Unlock</button>
               <button type="button" onClick={() => setShowLogin(false)} className="w-full text-slate-400 font-bold uppercase text-xs tracking-widest mt-2">Back to Site</button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Change Password Modal */}
+      {showPasswordModal && (
+        <div className="fixed inset-0 bg-slate-900/95 backdrop-blur-md z-[300] flex items-center justify-center p-4">
+          <div className="bg-white w-full max-w-md rounded-sm shadow-2xl animate-in zoom-in-95 duration-200 overflow-hidden">
+            <div className="bg-slate-900 p-8 text-white text-center">
+              <div className="bg-yellow-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <KeyRound size={32} className="text-slate-900" />
+              </div>
+              <h3 className="font-oswald uppercase font-bold text-2xl tracking-tight">Update Credentials</h3>
+              <p className="text-slate-400 text-sm mt-2">Securely update your admin access key</p>
+            </div>
+            
+            <form onSubmit={handleUpdatePassword} className="p-10 space-y-5">
+              {passMessage.text && (
+                <div className={`p-4 rounded-sm text-sm font-bold flex items-center gap-2 ${
+                  passMessage.type === 'success' ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'
+                }`}>
+                  {passMessage.type === 'success' ? <CheckCircle2 size={16} /> : <AlertCircle size={16} />}
+                  {passMessage.text}
+                </div>
+              )}
+              
+              <div className="space-y-2">
+                <label className="text-xs font-black uppercase text-slate-500 tracking-widest">Current Password</label>
+                <input required type="password" value={passForm.current} onChange={e => setPassForm({...passForm, current: e.target.value})} className="w-full bg-slate-50 border border-slate-200 p-3 focus:border-yellow-500 outline-none" />
+              </div>
+              
+              <div className="space-y-2">
+                <label className="text-xs font-black uppercase text-slate-500 tracking-widest">New Password</label>
+                <input required type="password" value={passForm.new} onChange={e => setPassForm({...passForm, new: e.target.value})} className="w-full bg-slate-50 border border-slate-200 p-3 focus:border-yellow-500 outline-none" />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs font-black uppercase text-slate-500 tracking-widest">Confirm New Password</label>
+                <input required type="password" value={passForm.confirm} onChange={e => setPassForm({...passForm, confirm: e.target.value})} className="w-full bg-slate-50 border border-slate-200 p-3 focus:border-yellow-500 outline-none" />
+              </div>
+
+              <div className="pt-2 flex gap-3">
+                <button type="submit" className="flex-1 bg-slate-900 text-white font-bold uppercase tracking-widest py-3 hover:bg-slate-800 transition-all text-xs">Update Key</button>
+                <button type="button" onClick={() => {setShowPasswordModal(false); setPassMessage({type:'', text:''}); setPassForm({current:'', new:'', confirm:''})}} className="flex-1 bg-slate-100 text-slate-600 font-bold uppercase tracking-widest py-3 hover:bg-slate-200 transition-all text-xs">Cancel</button>
+              </div>
             </form>
           </div>
         </div>

@@ -116,7 +116,7 @@ const Navigation = ({ config }: { config: SiteConfig }) => {
       <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm relative z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-28 md:h-36 transition-all duration-300">
-            <div className="flex items-center shrink-0">
+            <div className="flex items-center shrink-0 mr-12 lg:mr-24">
               <Link to="/" className="flex items-center gap-3 group">
                 <BrandLogo 
                   primarySrc={config.headerLogo} 

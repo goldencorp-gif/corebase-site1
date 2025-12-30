@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Award } from 'lucide-react';
 
@@ -25,8 +24,12 @@ const About = () => {
             </div>
             
             <div className="grid grid-cols-2 gap-6 relative">
-              <img src="https://images.unsplash.com/photo-1504307651254-35680fb3ba66?auto=format&fit=crop&q=80&w=800" className="w-full h-80 object-cover structural-border" alt="Site" />
-              <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800" className="w-full h-80 object-cover mt-12 structural-border" alt="Slab" />
+              <div className="w-full h-80 structural-border">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680fb3ba66?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover" alt="Site" />
+              </div>
+              <div className="w-full h-80 structural-border mt-12">
+                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover" alt="Slab" />
+              </div>
             </div>
           </div>
         </div>
