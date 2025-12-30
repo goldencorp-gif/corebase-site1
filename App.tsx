@@ -118,18 +118,11 @@ const Navigation = ({ config }: { config: SiteConfig }) => {
           <div className="flex justify-between h-20">
             <div className="flex items-center">
               <Link to="/" className="flex items-center gap-3 group">
-                <div className="flex items-center h-12">
-                  <BrandLogo 
-                    primarySrc={config.headerLogo} 
-                    fallbackSrc={config.defaultLogo}
-                    className="h-10 w-auto object-contain transition-all duration-500"
-                  />
-                </div>
-                
-                <div className="flex flex-col">
-                  <span className="text-2xl font-bold tracking-tighter text-slate-900 font-oswald uppercase transition-colors group-hover:text-yellow-600">CoreBase</span>
-                  <span className="text-xs tracking-[0.2em] font-black text-slate-500 uppercase -mt-1">Construction</span>
-                </div>
+                <BrandLogo 
+                  primarySrc={config.headerLogo} 
+                  fallbackSrc={config.defaultLogo}
+                  className="h-14 md:h-16 w-auto object-contain transition-all duration-500"
+                />
               </Link>
             </div>
             
@@ -203,17 +196,13 @@ const Footer = ({ config }: { config: SiteConfig }) => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-16 text-left mb-24">
         <div className="col-span-1 md:col-span-1">
-          <Link to="/" className="flex flex-col mb-8 group">
-            <div className="flex items-center gap-3 mb-2">
-              <BrandLogo 
-                primarySrc={config.footerLogo} 
-                fallbackSrc={config.defaultLogo}
-                className="h-8 w-auto object-contain transition-all"
-                isFooter={true}
-              />
-              <span className="text-3xl font-bold tracking-tighter text-white font-oswald uppercase">CoreBase</span>
-            </div>
-            <span className="text-sm tracking-[0.3em] font-black text-yellow-500 uppercase -mt-1 ml-0 md:ml-11">Construction</span>
+          <Link to="/" className="inline-block mb-8 group">
+            <BrandLogo 
+              primarySrc={config.footerLogo} 
+              fallbackSrc={config.defaultLogo}
+              className="h-14 md:h-16 w-auto object-contain transition-all"
+              isFooter={true}
+            />
           </Link>
           <p className="text-sm leading-relaxed mb-8 font-light text-slate-300">
             Specialist structural foundations and groundworks contractor. Delivering engineered strength for Victoria's leading residential and commercial builders.
