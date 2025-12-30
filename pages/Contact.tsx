@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Send, Loader2 } from 'lucide-react';
 
@@ -73,8 +72,8 @@ const Contact = () => {
               <div className="bg-slate-900 p-8 text-white">
                 <h4 className="font-oswald font-bold uppercase mb-4 text-yellow-500 text-lg">Office Hours</h4>
                 <div className="space-y-2 text-sm text-slate-400">
-                  <div className="flex justify-between"><span>Mon - Fri:</span><span>7:00 AM - 5:00 PM</span></div>
-                  <div className="flex justify-between"><span>Sat:</span><span>8:00 AM - 1:00 PM</span></div>
+                  <div className="flex justify-between"><span>Mon - Fri:</span><span>9:00 AM - 5:00 PM</span></div>
+                  <div className="flex justify-between"><span>Sat:</span><span>9:00 AM - 1:00 PM</span></div>
                   <div className="flex justify-between"><span>Sun:</span><span>Closed</span></div>
                 </div>
               </div>

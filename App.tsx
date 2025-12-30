@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { 
@@ -108,7 +107,7 @@ const Navigation = ({ config }: { config: SiteConfig }) => {
             </span>
             <div className="h-3 w-px bg-slate-700"></div>
             <span className="flex items-center gap-2">
-              <Clock size={14} className="text-yellow-500" /> Mon - Fri: 7am - 5pm
+              <Clock size={14} className="text-yellow-500" /> Mon - Fri: 9am - 5pm
             </span>
           </div>
         </div>
@@ -151,7 +150,7 @@ const Navigation = ({ config }: { config: SiteConfig }) => {
               ))}
               <Link
                 to="/contact"
-                className="bg-slate-900 text-white px-8 py-3 rounded-sm text-sm font-black uppercase tracking-[0.2em] hover:bg-yellow-500 hover:text-slate-900 transition-all duration-300 transform active:scale-95 shadow-lg shadow-slate-900/10"
+                className="inline-flex items-center justify-center bg-slate-900 text-white px-8 py-3 rounded-sm text-sm font-black uppercase tracking-[0.2em] hover:bg-yellow-500 hover:text-slate-900 transition-all duration-300 transform active:scale-95 shadow-lg shadow-slate-900/10"
               >
                 Request a Quote
               </Link>
