@@ -6,14 +6,10 @@ import {
   Phone, 
   Mail, 
   MapPin, 
-  ArrowRight, 
-  HardHat, 
   Building2, 
   ShieldCheck, 
-  Timer, 
   Hammer,
   MessageSquareText,
-  Images,
   Handshake,
   Landmark,
   Compass,
@@ -116,7 +112,8 @@ const Navigation = ({ config }: { config: SiteConfig }) => {
       <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm relative z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-28 md:h-36 transition-all duration-300">
-            <div className="flex items-center shrink-0 mr-12 lg:mr-24">
+            {/* Logo Section - Increased Margin */}
+            <div className="flex items-center shrink-0 mr-16 lg:mr-40">
               <Link to="/" className="flex items-center gap-3 group">
                 <BrandLogo 
                   primarySrc={config.headerLogo} 
@@ -126,12 +123,13 @@ const Navigation = ({ config }: { config: SiteConfig }) => {
               </Link>
             </div>
             
-            <div className="hidden lg:flex items-center space-x-10">
+            {/* Desktop Menu - Optimized Spacing */}
+            <div className="hidden lg:flex items-center space-x-8 xl:space-x-12">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`text-sm font-black uppercase tracking-widest transition-all relative py-2 group ${
+                  className={`text-sm font-black uppercase tracking-widest transition-all relative py-2 group whitespace-nowrap ${
                     location.pathname === link.path ? 'text-yellow-600' : 'text-slate-600 hover:text-yellow-600'
                   }`}
                 >
@@ -143,7 +141,7 @@ const Navigation = ({ config }: { config: SiteConfig }) => {
               ))}
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center bg-slate-900 text-white px-8 py-3 rounded-sm text-sm font-black uppercase tracking-[0.2em] hover:bg-yellow-500 hover:text-slate-900 transition-all duration-300 transform active:scale-95 shadow-lg shadow-slate-900/10"
+                className="inline-flex items-center justify-center bg-slate-900 text-white px-6 xl:px-8 py-3 rounded-sm text-sm font-black uppercase tracking-[0.2em] hover:bg-yellow-500 hover:text-slate-900 transition-all duration-300 transform active:scale-95 shadow-lg shadow-slate-900/10 whitespace-nowrap"
               >
                 Request a Quote
               </Link>
@@ -344,7 +342,7 @@ export default function App() {
       .then(data => {
         if (data) setConfig(prev => ({ ...prev, ...data }));
       })
-      .catch(err => {
+      .catch(() => {
         // Silently fail and use defaults
         console.debug('Using default site settings');
       });

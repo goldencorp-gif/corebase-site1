@@ -1,6 +1,5 @@
-
 import React, { useState, useRef, useEffect } from 'react';
-import { X, Send, Bot, User, Loader2, AlertTriangle } from 'lucide-react';
+import { X, Send, Bot, Loader2, AlertTriangle } from 'lucide-react';
 import { GoogleGenAI } from '@google/genai';
 
 interface Message {
@@ -56,7 +55,6 @@ const FoundationAssistant: React.FC<{ onClose: () => void }> = ({ onClose }) => 
         ],
         config: {
           systemInstruction: "You are a friendly and knowledgeable virtual assistant for CoreBase Construction, a foundation and groundworks specialist in Australia. Your goal is to help potential clients understand foundation types (strip footings, slabs, bored piers, etc.) and answer basic technical questions about excavation and groundworks based on CoreBase's services. Keep responses professional, helpful, and encourage them to request a formal quote or capability statement for detailed engineering analysis. If they ask about pricing, explain it depends on engineering drawings and soil reports. Refer to Australian Standards (AS 2870) where relevant.",
-          maxOutputTokens: 500,
         }
       });
 

@@ -1,6 +1,4 @@
-
-import React from 'react';
-import { ShieldCheck, HardHat, FileText, Calendar, Construction } from 'lucide-react';
+import { ShieldCheck, FileText, Calendar, Construction } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Partners = () => {

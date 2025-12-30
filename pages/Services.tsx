@@ -1,5 +1,3 @@
-
-import React from 'react';
 import { Check } from 'lucide-react';
 
 const ServiceDetail = ({ title, items, description, image }: { title: string, items: string[], description?: string, image: string }) => (

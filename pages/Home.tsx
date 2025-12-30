@@ -1,11 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
   HardHat, 
-  ShieldCheck, 
-  Ruler,
-  CheckCircle2,
   Construction,
   Building2,
   TrendingUp,

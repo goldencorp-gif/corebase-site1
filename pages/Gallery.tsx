@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Plus, Trash2, Camera, Settings, X, Save, Lock, Unlock, 
-  AlertCircle, ChevronLeft, ChevronRight, Play, Image as ImageIcon,
-  Film, ExternalLink, LayoutGrid, KeyRound, CheckCircle2
+  Plus, Trash2, Settings, X, Save, Lock, Unlock, 
+  AlertCircle, ChevronLeft, ChevronRight, Play, ExternalLink, LayoutGrid, KeyRound, CheckCircle2
 } from 'lucide-react';
 
 interface MediaItem {
