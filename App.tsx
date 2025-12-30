@@ -34,6 +34,17 @@ const DEFAULT_CONFIG = {
 
 type SiteConfig = typeof DEFAULT_CONFIG;
 
+// Automatically scrolls to top when pathname changes
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
+
 const BrandLogo = ({ 
   primarySrc, 
   fallbackSrc, 
@@ -350,6 +361,7 @@ export default function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Navigation config={config} />
         <main className="flex-grow min-h-[500px]">
