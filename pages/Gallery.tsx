@@ -410,7 +410,8 @@ const Gallery = () => {
                         className="flex-grow bg-slate-50 border border-slate-200 p-3 text-sm focus:border-yellow-500 outline-none" 
                         placeholder="Paste URL here..."
                       />
-                      {editProject.media!.length > 1 && (
+                      {/* Safe check for media length */}
+                      {editProject.media && editProject.media.length > 1 && (
                         <button type="button" onClick={() => removeMediaField(idx)} className="p-3 text-slate-300 hover:text-red-600 transition-colors">
                           <Trash2 size={18} />
                         </button>
