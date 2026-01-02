@@ -44,7 +44,7 @@ const Services = () => {
           <ServiceDetail 
             title="Excavation & Site Preparation"
             icon={Truck}
-            image="https://images.unsplash.com/photo-1535732759880-bbd5c7265e3f?auto=format&fit=crop&q=80&w=1200"
+            image="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200"
             items={[
               "Bulk and detailed excavation",
               "Site cuts and ground levelling",
@@ -55,7 +55,7 @@ const Services = () => {
           <ServiceDetail 
             title="Footings & Structural Foundations"
             icon={LayoutTemplate}
-            image="https://images.unsplash.com/photo-1590644300530-395cc0c8278b?auto=format&fit=crop&q=80&w=1200"
+            image="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=1200"
             items={[
               "Strip footings and pad footings",
               "Bored piers and pier systems",
@@ -67,7 +67,7 @@ const Services = () => {
           <ServiceDetail 
             title="Concrete Slabs"
             icon={Hammer}
-            image="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=1200"
+            image="https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&q=80&w=1200"
             items={[
               "Raft slabs",
               "Waffle slabs",
@@ -79,7 +79,7 @@ const Services = () => {
           <ServiceDetail 
             title="Groundworks & Pre-Construction"
             icon={Ruler}
-            image="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200"
+            image="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=1200"
             items={[
               "Set-out coordination",
               "Base preparation and compaction",

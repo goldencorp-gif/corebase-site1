@@ -125,21 +125,21 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 text-left">
             <div className="group cursor-pointer">
               <div className="overflow-hidden mb-8 h-[500px] structural-border bg-slate-100 relative">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680fb3ba66?auto=format&fit=crop&q=80&w=800" alt="Excavation Work" className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" />
+                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800" alt="Excavation Work" className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" />
               </div>
               <h3 className="text-3xl font-bold font-oswald uppercase mb-2 tracking-tight">Bulk Excavation</h3>
               <p className="text-slate-500 text-base font-medium uppercase tracking-widest">Site Preparation & Benching</p>
             </div>
             <div className="group cursor-pointer">
               <div className="overflow-hidden mb-8 h-[500px] structural-border bg-slate-100 relative">
-                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800" alt="Reinforcement Detail" className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" />
+                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=1200" alt="Reinforcement Detail" className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" />
               </div>
               <h3 className="text-3xl font-bold font-oswald uppercase mb-2 tracking-tight">Footing Systems</h3>
               <p className="text-slate-500 text-base font-medium uppercase tracking-widest">Bored Piers & Pad Foundations</p>
             </div>
             <div className="group cursor-pointer md:col-span-2 lg:col-span-1">
               <div className="overflow-hidden mb-8 h-[500px] structural-border bg-slate-100 relative">
-                <img src="https://images.unsplash.com/photo-1590644300530-395cc0c8278b?auto=format&fit=crop&q=80&w=800" alt="Concrete Foundations" className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" />
+                <img src="https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&q=80&w=800" alt="Concrete Foundations" className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" />
               </div>
               <h3 className="text-3xl font-bold font-oswald uppercase mb-2 tracking-tight">Structural Slabs</h3>
               <p className="text-slate-500 text-base font-medium uppercase tracking-widest">Waffle Pod & Raft Designs</p>

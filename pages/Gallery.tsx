@@ -24,8 +24,8 @@ const DEFAULT_PROJECTS: Project[] = [
     category: 'Residential',
     description: 'Bored piers and strip footings for a 4-unit development. Includes site prep and drainage integration.',
     media: [
-      { type: 'image', url: 'https://images.unsplash.com/photo-1590644300530-395cc0c8278b?auto=format&fit=crop&q=80&w=800' },
-      { type: 'image', url: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800' }
+      { type: 'image', url: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=800' },
+      { type: 'image', url: 'https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&q=80&w=800' }
     ]
   },
   {
@@ -34,7 +34,7 @@ const DEFAULT_PROJECTS: Project[] = [
     category: 'Excavation',
     description: 'Full site cut and spoil removal for a light commercial warehouse project.',
     media: [
-      { type: 'image', url: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800' }
+      { type: 'image', url: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800' }
     ]
   }
 ];
