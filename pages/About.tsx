@@ -35,7 +35,7 @@ const About = () => {
             <div className="relative h-full min-h-[400px]">
                <div className="absolute top-0 right-0 w-2/3 h-full bg-slate-100 -z-10 translate-x-12 translate-y-12 rounded-sm"></div>
                <div className="structural-border h-[500px] w-full bg-white shadow-xl">
-                 <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" alt="Construction Team" />
+                 <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" alt="Construction Team" />
                </div>
             </div>
           </div>

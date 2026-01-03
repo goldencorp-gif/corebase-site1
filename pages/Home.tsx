@@ -134,8 +134,8 @@ const Home = () => {
               <div className="overflow-hidden mb-8 h-[500px] structural-border bg-slate-100 relative">
                 <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=1200" alt="Reinforcement Detail" className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" />
               </div>
-              <h3 className="text-3xl font-bold font-oswald uppercase mb-2 tracking-tight">Footing Systems</h3>
-              <p className="text-slate-500 text-base font-medium uppercase tracking-widest">Bored Piers & Pad Foundations</p>
+              <h3 className="text-3xl font-bold font-oswald uppercase mb-2 tracking-tight">Basement & Retention</h3>
+              <p className="text-slate-500 text-base font-medium uppercase tracking-widest">Deep Excavation & Piling</p>
             </div>
             <div className="group cursor-pointer md:col-span-2 lg:col-span-1">
               <div className="overflow-hidden mb-8 h-[500px] structural-border bg-slate-100 relative">

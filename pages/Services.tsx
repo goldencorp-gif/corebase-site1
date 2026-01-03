@@ -1,4 +1,4 @@
-import { Check, Truck, LayoutTemplate, Hammer, Ruler, Building } from 'lucide-react';
+import { Check, Truck, LayoutTemplate, Hammer, Ruler, Building, ArrowDownToLine, Layers, Shield } from 'lucide-react';
 
 const ServiceDetail = ({ title, items, description, image, icon: Icon }: { title: string, items: string[], description?: string, image: string, icon?: any }) => (
   <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32 last:mb-0">
@@ -89,6 +89,77 @@ const Services = () => {
         </div>
       </section>
 
+      {/* NEW: Complex Substructures Section (High Margin) */}
+      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#f7b731_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+           <div className="text-center mb-16">
+              <span className="text-yellow-500 font-bold uppercase tracking-[0.2em] text-sm mb-2 block">Advanced Capabilities</span>
+              <h2 className="text-4xl md:text-5xl font-bold font-oswald uppercase text-white tracking-tight">Complex Substructures</h2>
+              <div className="w-24 h-1 bg-yellow-500 mx-auto mt-6"></div>
+              <p className="max-w-3xl mx-auto mt-8 text-slate-400 font-light text-lg">
+                For projects requiring deep excavation and engineered retention, CoreBase provides specialized end-to-end solutions.
+              </p>
+           </div>
+
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Card 1: Basements */}
+              <div className="bg-slate-800 p-8 border border-slate-700 hover:border-yellow-500 transition-all group relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <ArrowDownToLine size={100} />
+                </div>
+                <div className="relative z-10">
+                  <div className="bg-slate-900 w-14 h-14 flex items-center justify-center rounded-sm mb-6 text-yellow-500 group-hover:scale-110 transition-transform">
+                    <ArrowDownToLine size={28} />
+                  </div>
+                  <h3 className="text-2xl font-bold font-oswald uppercase mb-4 text-white">Basement Construction</h3>
+                  <ul className="space-y-3 text-slate-300">
+                    <li className="flex items-start gap-2 text-sm"><span className="text-yellow-500 font-bold">/</span> Excavation & spoil removal</li>
+                    <li className="flex items-start gap-2 text-sm"><span className="text-yellow-500 font-bold">/</span> Bulk outs & detail digs</li>
+                    <li className="flex items-start gap-2 text-sm"><span className="text-yellow-500 font-bold">/</span> Drainage coordination</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Card 2: Retention */}
+              <div className="bg-slate-800 p-8 border border-slate-700 hover:border-yellow-500 transition-all group relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <Shield size={100} />
+                </div>
+                <div className="relative z-10">
+                   <div className="bg-slate-900 w-14 h-14 flex items-center justify-center rounded-sm mb-6 text-yellow-500 group-hover:scale-110 transition-transform">
+                    <Shield size={28} />
+                  </div>
+                  <h3 className="text-2xl font-bold font-oswald uppercase mb-4 text-white">Retention Systems</h3>
+                  <ul className="space-y-3 text-slate-300">
+                    <li className="flex items-start gap-2 text-sm"><span className="text-yellow-500 font-bold">/</span> Capping beams</li>
+                    <li className="flex items-start gap-2 text-sm"><span className="text-yellow-500 font-bold">/</span> Shotcrete prep & coordination</li>
+                    <li className="flex items-start gap-2 text-sm"><span className="text-yellow-500 font-bold">/</span> Bored pier retention</li>
+                  </ul>
+                </div>
+              </div>
+
+               {/* Card 3: Suspended Slabs */}
+               <div className="bg-slate-800 p-8 border border-slate-700 hover:border-yellow-500 transition-all group relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <Layers size={100} />
+                </div>
+                <div className="relative z-10">
+                   <div className="bg-slate-900 w-14 h-14 flex items-center justify-center rounded-sm mb-6 text-yellow-500 group-hover:scale-110 transition-transform">
+                    <Layers size={28} />
+                  </div>
+                  <h3 className="text-2xl font-bold font-oswald uppercase mb-4 text-white">Suspended Slabs</h3>
+                  <ul className="space-y-3 text-slate-300">
+                    <li className="flex items-start gap-2 text-sm"><span className="text-yellow-500 font-bold">/</span> Bondek & formwork systems</li>
+                    <li className="flex items-start gap-2 text-sm"><span className="text-yellow-500 font-bold">/</span> Multi-level residential</li>
+                    <li className="flex items-start gap-2 text-sm"><span className="text-yellow-500 font-bold">/</span> Structural steel integration</li>
+                  </ul>
+                </div>
+              </div>
+           </div>
+        </div>
+      </section>
+
       {/* Project Types Section */}
       <section className="bg-slate-50 py-24 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -99,9 +170,9 @@ const Services = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[
-                    { title: "Residential Homes", desc: "Custom builds and renovations requiring precision foundations." },
-                    { title: "Townhouses & Units", desc: "Multi-dwelling developments with complex groundworks." },
-                    { title: "Light Commercial", desc: "Mixed-use projects and commercial slabs." }
+                    { title: "Custom Residential", desc: "Architectural homes requiring precision foundations and basements." },
+                    { title: "Multi-Unit Developments", desc: "Townhouse sites with complex common property groundworks." },
+                    { title: "Commercial & Industrial", desc: "Warehouses, factories, and heavy-duty hardstands." }
                 ].map((type, i) => (
                     <div key={i} className="bg-white p-10 border border-slate-200 hover:border-yellow-500 transition-colors shadow-sm group">
                         <h3 className="font-oswald font-bold uppercase text-xl mb-4 text-slate-900 group-hover:text-yellow-600 transition-colors">{type.title}</h3>
