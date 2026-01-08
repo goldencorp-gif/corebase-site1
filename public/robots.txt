@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://corebaseconstruction.com.au/sitemap.xml
