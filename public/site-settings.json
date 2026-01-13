@@ -1,6 +1,6 @@
-
 {
   "headerLogo": "/logo-header.png",
   "footerLogo": "/logo-footer.png",
-  "defaultLogo": "/logo.png"
+  "defaultLogo": "/logo.png",
+  "googleAnalyticsId": "G-62SR9NLNKT"
 }

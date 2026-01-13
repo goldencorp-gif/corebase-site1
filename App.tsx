@@ -29,7 +29,8 @@ import FoundationAssistant from './components/FoundationAssistant';
 const DEFAULT_CONFIG = {
   headerLogo: '/logo-header.png',
   footerLogo: '/logo-footer.png',
-  defaultLogo: '/logo.png'
+  defaultLogo: '/logo.png',
+  googleAnalyticsId: ''
 };
 
 type SiteConfig = typeof DEFAULT_CONFIG;
@@ -358,6 +359,35 @@ export default function App() {
         console.debug('Using default site settings');
       });
   }, []);
+
+  // Initialize Google Analytics if ID is present
+  useEffect(() => {
+    if (!config.googleAnalyticsId) return;
+
+    const scriptId = 'ga-script';
+    if (document.getElementById(scriptId)) return;
+
+    const scriptUrl = `https://www.googletagmanager.com/gtag/js?id=${config.googleAnalyticsId}`;
+    
+    // Inject Main Script
+    const script = document.createElement('script');
+    script.id = scriptId;
+    script.async = true;
+    script.src = scriptUrl;
+    document.head.appendChild(script);
+
+    // Inject Config Script
+    const inlineScript = document.createElement('script');
+    inlineScript.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${config.googleAnalyticsId}');
+    `;
+    document.head.appendChild(inlineScript);
+    
+    console.debug(`Analytics initialized with ID: ${config.googleAnalyticsId}`);
+  }, [config.googleAnalyticsId]);
 
   return (
     <Router>
